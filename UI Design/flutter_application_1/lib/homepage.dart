@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/fovoritebar.dart';
+import 'package:flutter_application_1/lover_title.dart';
+import 'package:flutter_application_1/title_name.dart';
+import 'package:flutter_application_1/todays_promo.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -6,6 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: Colors.white10,
       appBar: AppBar(
         backgroundColor: Colors.white60,
         elevation: 0,
@@ -44,174 +49,51 @@ class HomePage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          color: Colors.white24,
+          color: Colors.white10,
           child: Column(children: [
             const SizedBox(
               height: 20,
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "Hello Yahya",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 40,
-                      color: Colors.black87),
-                ),
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "What do you want to eat ?",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: Colors.black54),
-                ),
-              ),
-            ),
+            TitleName(),
+            LowerTitle(),
             const SizedBox(
               height: 40,
             ),
+            FovoriteBar(),
+            const SizedBox(
+              height: 20,
+            ),
+            TodaysPromo(),
+            const SizedBox(
+              height: 20,
+            ),
             Padding(
-              padding: const EdgeInsets.all(2),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Column(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        height: 80,
-                        width: 80,
-                        child: Icon(
-                          Icons.favorite_border,
-                          size: 40,
-                          color: Colors.deepOrange[500],
-                        ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          'Fovorite',
-                          style: TextStyle(color: Colors.black54, fontSize: 17),
-                        ),
-                      )
-                    ],
+                  Container(
+                    alignment: const Alignment(0, 0),
+                    height: 300,
+                    width: 350,
+                    decoration: BoxDecoration(
+                        image: const DecorationImage(
+                            image: AssetImage('assets/images/first.jpg'),
+                            fit: BoxFit.cover),
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey.shade300,
+                              offset: const Offset(-5, 5),
+                              blurRadius: 20,
+                              spreadRadius: 4)
+                        ]),
+                    child: Image.asset('assets/images/first.jpg'),
                   ),
-                  Column(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        height: 80,
-                        width: 80,
-                        child: Icon(
-                          Icons.call_made_sharp,
-                          size: 40,
-                          color: Colors.deepOrange[500],
-                        ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          'Cheap',
-                          style: TextStyle(color: Colors.black54, fontSize: 17),
-                        ),
-                      )
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        height: 80,
-                        width: 80,
-                        child: Icon(
-                          Icons.trending_up,
-                          size: 40,
-                          color: Colors.deepOrange[500],
-                        ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          'Trend',
-                          style: TextStyle(color: Colors.black54, fontSize: 17),
-                        ),
-                      )
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        height: 80,
-                        width: 80,
-                        child: Icon(
-                          Icons.more_horiz_sharp,
-                          size: 40,
-                          color: Colors.deepOrange[500],
-                        ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          'More',
-                          style: TextStyle(color: Colors.black54, fontSize: 17),
-                        ),
-                      )
-                    ],
-                  ),
+                  Image.network(
+                      'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'),
                 ],
               ),
-            ),
-            Row(
-              //  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                SizedBox(
-                  height: 40,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    "Today's Promo",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25,
-                        color: Colors.black87),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 60,
-                  ),
-                  child: Text(
-                    "See all",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 17,
-                        color: Colors.redAccent),
-                  ),
-                ),
-              ],
             )
           ]),
         ),
