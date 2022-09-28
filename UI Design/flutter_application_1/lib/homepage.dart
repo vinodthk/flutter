@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/fovoritebar.dart';
 import 'package:flutter_application_1/lover_title.dart';
+import 'package:flutter_application_1/mycard.dart';
 import 'package:flutter_application_1/title_name.dart';
 import 'package:flutter_application_1/todays_promo.dart';
 
@@ -48,9 +49,10 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
-        child: Container(
-          color: Colors.white10,
-          child: Column(children: [
+          child: Container(
+        color: Colors.white10,
+        child: Column(
+          children: [
             const SizedBox(
               height: 20,
             ),
@@ -67,37 +69,23 @@ class HomePage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
+            Container(
+              height: 250,
+              width: 350,
+              child: PageView(
+                scrollDirection: Axis.horizontal,
                 children: [
-                  Container(
-                    alignment: const Alignment(0, 0),
-                    height: 300,
-                    width: 350,
-                    decoration: BoxDecoration(
-                        image: const DecorationImage(
-                            image: AssetImage('assets/images/first.jpg'),
-                            fit: BoxFit.cover),
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey.shade300,
-                              offset: const Offset(-5, 5),
-                              blurRadius: 20,
-                              spreadRadius: 4)
-                        ]),
-                    child: Image.asset('assets/images/first.jpg'),
-                  ),
-                  Image.network(
-                      'https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
                 ],
               ),
             )
-          ]),
+          ],
         ),
-      ),
+      )),
     );
   }
 }
